@@ -1,2 +1,32 @@
-# dpTutors
-an app that allows students to study and get help from other students who have previously take the course
+# dp_tutors
+
+
+
+
+
+
+An app that allows UNT students to study and get help from other students who have previously taken the course.
+
+
+
+
+
+
+
+
+
+
+A new Flutter project.
+
+## Getting Started
+
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+
+For help getting started with Flutter, view our
+[online documentation](https://flutter.dev/docs), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
