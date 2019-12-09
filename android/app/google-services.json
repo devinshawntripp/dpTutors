@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1059097667110",
+    "firebase_url": "https://dptutors-de6ca.firebaseio.com",
+    "project_id": "dptutors-de6ca",
+    "storage_bucket": "dptutors-de6ca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1059097667110:android:e1a6ad7971768d0c3768e7",
+        "android_client_info": {
+          "package_name": "com.sparrow.dp_tutors"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1059097667110-29ht08nqs110nk1fs6ubt982icl1d2ul.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwYG3JiYkAcbDZj0xZqM6yeCaXI9MoYD4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1059097667110-29ht08nqs110nk1fs6ubt982icl1d2ul.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
