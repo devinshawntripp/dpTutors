@@ -16,6 +16,15 @@ class AuthService {
   }
 
 
+  //register with facebook
+
+
+
+
+  //register with google
+  
+
+
 
   //anon sign in 
   Future signInAnon() async {
@@ -29,12 +38,42 @@ class AuthService {
     }
   }
   //sign in with email and password
+  Future signInEAP(email, password) async {
+    try {
+      AuthResult result =  await _auth.signInWithEmailAndPassword(email: email, password: password);
+      FirebaseUser user = result.user;
+      return _userFromFirebaseUser(user);
+    } catch(e) {
+      print(e.toString());
+      return null;
+    }
+  }
 
 
   //register with email and password
+  Future signUp(email, password) async{
+    try {
+      AuthResult result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      FirebaseUser user = result.user;
+      return user;
+    } catch(e) {
+      print(e.toString());
+      return null;
+
+    }
+  }
 
 
   //sign out
+  Future signOut() async {
+    try {
+      return await _auth.signOut();
+    } catch(e) {
+      print(e.toString());
+      return null;
+    }
+  }
+
 
 
 

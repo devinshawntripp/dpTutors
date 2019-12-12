@@ -21,7 +21,7 @@ dependencies:
     sdk: flutter
   firebase_core: ^0.4.0+9
   provider: ^3.2.0
-
+  flutter_spinkit: ^4.1.0
   firebase_analytics: ^5.0.2
 
   # Add the dependencies for any other Firebase products you want to use in your app
