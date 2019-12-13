@@ -22,11 +22,16 @@ class DatabaseService {
     return await tutorsCollection.document(user.uid).setData({
       'firstname': firstname,
       'rating': 0,
+      'classes': FieldValue.arrayUnion(classes),
       
 
     });
-    // return await tutorsCollection.document(user.uid).collection("classes").document().setData({
-      
+    // for (var someclass in classes){
+        
+    // }
+
+    // return await tutorsCollection.document(user.uid).collection("classes").document().updateData({
+    //   {"data": classes}
     // });
     
   }

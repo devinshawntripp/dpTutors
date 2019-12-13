@@ -35,7 +35,14 @@ class _TutorsState extends State<Tutors> {
               ),
             ],
           ),
-          body: Center(child: TutorsList()),
+          body: Center(
+            child: Column(children: <Widget>[
+              
+              Expanded(
+                child: TutorsList(),
+              )
+            ],)
+          ),
         ));
   }
 }
