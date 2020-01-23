@@ -21,8 +21,11 @@ class UserData {
 class Tutor {
   final String firstName;
   final int rating;
+  final String docid;
+  final int rate;
+  final List<String> classes;
 
-  Tutor({this.firstName, this.rating});
+  Tutor({this.firstName, this.rating, this.docid, this.classes, this.rate});
 }
 
 final List<String> classes = ["CSCE 2100","CSCE 2110", "Automata Theory"];
@@ -33,3 +36,5 @@ final List<String> classes = ["CSCE 2100","CSCE 2110", "Automata Theory"];
 // }
 
 List<String> takenClasses = [];
+
+List<String> selectedUserClasses = [];

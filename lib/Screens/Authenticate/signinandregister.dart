@@ -37,22 +37,21 @@ class _SignInState extends State<SignIn> {
                   child: Column(
                 children: <Widget>[
                   Container(
-                    margin: EdgeInsets.only(
-                        top: MediaQuery.of(context).size.height / 10),
+                    margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.10),
                     child: Text(
-                      "DP-TUTORS",
+                      "DISCOVERY TUTORS",
                       style: new TextStyle(
                         color: Color(0xffFCFCFC),
                         fontWeight: FontWeight.w800,
                         decoration: TextDecoration.underline,
                       ),
-                      textScaleFactor: 4.3,
+                      textScaleFactor: 2.5,
                     ),
                   ),
                   Container(
                     //add logo
                     margin: EdgeInsets.only(
-                        top: MediaQuery.of(context).size.height / 40),
+                        top: MediaQuery.of(context).size.height * 0.05),
                     child: Image.asset(
                       'assets/Unt-Logo.png',
                       height: 100,
@@ -60,9 +59,8 @@ class _SignInState extends State<SignIn> {
                   ),
                   Container(
                     // margin: EdgeInsets.only(top: MediaQuery.of(context).size.height/),
-                    margin: EdgeInsets.only(
-                        top: MediaQuery.of(context).size.height / 40),
-                    height: (MediaQuery.of(context).size.height * cardHeight * 1.1),
+                    margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * .05),
+                    height: (MediaQuery.of(context).size.height * cardHeight * 1),
                     width: MediaQuery.of(context).size.width * .90,
                     child: Card(
                       elevation: 15,
@@ -78,7 +76,7 @@ class _SignInState extends State<SignIn> {
                               child: Column(
                                 children: <Widget>[
                                   Container(
-                                    margin: EdgeInsets.only(top: 50),
+                                    margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.03) ,
                                     width: 300,
                                     child: TextFormField(
                                       validator: (val) =>
@@ -166,7 +164,13 @@ class _SignInState extends State<SignIn> {
                                 
                                         if (_formkey.currentState.validate()) {
                                           setState(() => loading = true);
-                                          await _auth.signUp(email, password);
+                                          dynamic result = await _auth.signUp(email, password);
+                                          if(result == null){
+                                            setState(() {
+                                              error = "account is already in use";
+                                              loading = false;
+                                            });
+                                          }
                                         } else {
                                           setState(() {
                                             cardHeight = cardHeight + 0.025;

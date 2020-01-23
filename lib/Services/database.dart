@@ -16,13 +16,16 @@ class DatabaseService {
   final AuthService _auth = AuthService();
 
 
+  Future getUserName(User user) async {
+    await tutorsCollection.document(user.uid).get();
+  }
 
-
-  Future registerTutor(User user, String firstname, List<String> classes) async {
+  Future registerTutor(User user, String firstname, List<String> classes, int rate) async {
     return await tutorsCollection.document(user.uid).setData({
       'firstname': firstname,
       'rating': 0,
       'classes': FieldValue.arrayUnion(classes),
+      'rate': rate,
       
 
     });
@@ -46,26 +49,44 @@ class DatabaseService {
   }
 
 
-  UserData _userDataFromSnapshot(DocumentSnapshot snapshot) {
-    return UserData (
-      firstName: snapshot.data['firstname'],
-      rating: snapshot.data['rating']
-    );
-
-  }
+  
 
   List<Tutor> _tutorsListFromSnapshot(QuerySnapshot snapshot){
     return snapshot.documents.map((doc) {
+      if(doc.data['classes'] != null){
+          return Tutor(
+            firstName: doc.data['firstname'] ?? '',
+            rating: doc.data['rating'] ?? 0,
+            docid: doc.documentID,
+            classes: doc.data['classes'].cast<String>() ?? [],
+            rate: doc.data['rate'] ?? 0,
+          );
+      } else {
+        return Tutor(
+            firstName: doc.data['firstname'] ?? '',
+            rating: doc.data['rating'] ?? 0,
+            docid: doc.documentID,
+            classes: [],
+            rate: doc.data['rate'] ?? 0,
+          );
+      }
 
-      return Tutor(
-        firstName: doc.data['firstname'] ?? '',
-        rating: doc.data['rating'] ?? 0,
-      );
+      
 
     }).toList();
   }
 
+
+  UserData _userDataFromSnapshot(DocumentSnapshot snapshot) {
+    return UserData (
+      firstName: snapshot.data['firstname'] ?? "",
+      rating: snapshot.data['rating'] ?? ""
+    );
+
+  }
+
   Stream<UserData> get userdata {
+    // print("some things " + uid);
     return tutorsCollection.document(uid).snapshots()
       .map((DocumentSnapshot userdata) => _userDataFromSnapshot(userdata));
   }

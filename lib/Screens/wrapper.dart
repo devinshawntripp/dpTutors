@@ -33,8 +33,6 @@ class wrapper extends StatelessWidget {
             print(snapshot);
             if(snapshot.hasData){
               return Tutors();
-              
-
             } else {
               return Register();
 

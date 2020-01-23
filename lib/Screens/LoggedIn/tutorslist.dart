@@ -15,6 +15,8 @@ class _TutorsListState extends State<TutorsList> {
   Widget build(BuildContext context) {
 
     final tutors = Provider.of<List<Tutor>>(context);
+    print("some instance of a user");
+    print(tutors[0].classes);
     // print(tutors.documents);
 
     // tutors.forEach((tutor) {
